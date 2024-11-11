@@ -49,18 +49,16 @@ This calculator was built to meet the following user stories:
 
 ```
 calculator-app/
-├── public/
-│ └── index.html
 ├── src/ │
-├── components/
-│ │ ├── Calculator.tsx # Main calculator component
-│ │ ├── Display.tsx # Display component for showing output
-│ │ ├── Button.tsx # Button component for calculator keys
-│ ├── styles/
-│ │ └── Calculator.css # CSS styling for calculator layout
-│ ├── App.tsx # Main app component
-│ └── main.tsx # App entry point
-└── README.md
+| ├── components/
+| │ ├── Calculator.tsx # Main calculator component
+| │ ├── Display.tsx # Display component for showing output
+| │ ├── Button.tsx # Button component for calculator keys
+| │ └── Calculator.css # CSS styling for calculator layout
+| ├── App.tsx # Main app component
+| ├── main.tsx # App entry point
+| ├── index.css # App global css
+| └── README.md
 ```
 
 ## Installation and Setup
