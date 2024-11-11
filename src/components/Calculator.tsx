@@ -6,14 +6,10 @@ import "./Calculator.css";
 const Calculator: React.FC = () => {
     const [display, setDisplay] = useState("0");
     const [currentValue, setCurrentValue] = useState("");
-    const [operator, setOperator] = useState("");
-    const [prevValue, setPrevValue] = useState("");
 
     const handleClear = () => {
         setDisplay("0");
         setCurrentValue("");
-        setOperator("");
-        setPrevValue("");
     };
 
     const handleNumberClick = (num: string) => {
@@ -25,35 +21,15 @@ const Calculator: React.FC = () => {
 
     const handleOperatorClick = (op: string) => {
         if (currentValue) {
-            setPrevValue(currentValue);
             setCurrentValue("");
         }
-        setOperator(op);
         setDisplay((prev) => prev + " " + op + " ");
     };
 
     const handleEqualClick = () => {
-        let result;
-        switch (operator) {
-            case "+":
-                result = parseFloat(prevValue) + parseFloat(currentValue);
-                break;
-            case "-":
-                result = parseFloat(prevValue) - parseFloat(currentValue);
-                break;
-            case "*":
-                result = parseFloat(prevValue) * parseFloat(currentValue);
-                break;
-            case "/":
-                result = parseFloat(prevValue) / parseFloat(currentValue);
-                break;
-            default:
-                return;
-        }
+        const result = eval(display.replace("x", "*").replace("/", "/")); // eval is dangerous, but works for this simple use case
         setDisplay(result.toString());
         setCurrentValue(result.toString());
-        setOperator("");
-        setPrevValue("");
     };
 
     return (
